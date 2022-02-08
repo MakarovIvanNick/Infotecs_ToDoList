@@ -1,0 +1,202 @@
+
+html, body{
+    margin: 0;
+    height: 100%;
+    background: #212121;
+    white-space: nowrap; /*запрещаем тексту переходить на новую строку*/
+    font-size: 1vw;
+    font-family: "Comic Sans MS";
+    font-weight: normal;
+    color: #212121;
+}
+
+.page{
+    display: flex;/*делим контент на два блока и выравниваем по центру*/
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.left{
+    position: relative;
+    padding: 0% 2%;
+    border: 0 solid #FFFFFF;
+    border-width: 10px 2px;
+    border-radius: 1rem;
+    height: 40%;
+    width: 15%;
+    text-align: right;
+    background: #FFFFFF;
+    overflow: auto;/*скрываем элементы за блоком и создаем скролл для перемещения по списку задач*/
+}
+
+header{
+    display: flex;
+    align-items: flex-start;
+    position: sticky;/*закрепляем кнопку add в начале блока*/
+    top: 0;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+h3{
+    display: block;
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 0.7vw;
+}
+
+.btn{
+    background-color: #FFFFFF;
+    border-radius: 20%;
+    border-color: #212121;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.7vw;
+}
+
+.btn:hover{
+    border-color: #FFFFFF;
+}
+
+.add{
+    display: block;
+    font-size: inherit;
+}
+
+.task{
+    display: block;
+    width: 95%;
+    border: 2px solid #212121;
+    border-radius: 1rem;
+    padding: 2px 10px;
+    margin-bottom: 5%;
+    overflow: hidden;
+}
+
+.task:hover{
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+.task-text{
+    overflow: hidden;
+    text-overflow: ellipsis;/*добавляем "...", если текст выходит за блок задачи*/
+}
+
+.buttons{
+    display: block;
+}
+
+.checked{
+    background-color: #7F7F7F;
+    color: #58555A;
+}
+
+.checked:hover{
+    color: #58555A;
+}
+
+.del{
+    animation: delete 1s;/*задаем анимацию удаления задачи*/
+}
+
+.del-settings{
+    animation: delete-settings 1s;/*задаем анимацию закрытия окна редактирования*/
+}
+
+.right{
+    display: none;
+    padding: 0% 2%;
+    border: 0 solid #FFFFFF;
+    border-width: 10px 2px;
+    border-radius: 1rem;
+    height: 40%;
+    width: 40%;
+    margin-left: 10px;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.emer{
+    animation: emergence 1s;/*задаем анимацию появления окна редактирования*/
+}
+
+.task-content{
+    margin-top: 5%;
+    height: 100%;
+}
+
+.save{
+    display: block;
+    font-size: inherit;
+}
+
+label{
+    display: block;
+    font-weight: bold;
+}
+
+.name{
+    margin: 2.5% 0%;
+    background-color: transparent;
+    border-bottom-left-radius: 1rem;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #212121;
+    font-family: inherit;
+    font-size: 0.9vw;
+    padding: 15px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.description{
+    height: 25%;
+    resize: none;
+}
+
+::-webkit-scrollbar{
+    width: 0;/*удаляем скролл*/
+}
+
+@keyframes emergence {/*создаем анимации*/
+    from{
+        width: 0;
+    }
+    to{
+        width: 40%;
+    }
+}
+
+@keyframes delete-settings {
+    from{
+        width: 40%;
+    }
+    to{
+        width: 0;
+    }
+}
+
+@keyframes delete {
+    from{
+        width: 95%;
+    }
+    to{
+        width: 0;
+    }
+}
+
+@media (max-width: 800px) {
+    .page{
+        font-size: 1.2vw;
+    }
+    .left{
+        height: 25%;
+        width: 25%;
+    }
+    .right{
+        height: 25%;
+        width: 50%;
+    }
+}
